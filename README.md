@@ -3,7 +3,13 @@
 1. add showBuffer,rtmpBufferTime
 2. update js version => 2.8.1
 
-install with `npm install git+https://github.com/cute-angelia/vue-aliplayer.git`
+install with
+
+```bash
+npm install git+https://github.com/cute-angelia/vue-aliplayer.git
+```
+
+---
 
 # Vue-AliPlayer
 
