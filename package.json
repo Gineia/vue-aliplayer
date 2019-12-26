@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/slacrey/vue-aliplayer.git"
+    "url": "git+https://github.com/cute-angelia/vue-aliplayer.git"
   },
   "keywords": [
     "vue",
@@ -25,9 +25,9 @@
   "author": "linfeng (237242115@qq.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/slacrey/vue-aliplayer/issues"
+    "url": "https://github.com/cute-angelia/vue-aliplayer/issues"
   },
-  "homepage": "https://github.com/slacrey/vue-aliplayer#readme",
+  "homepage": "https://github.com/cute-angelia/vue-aliplayer#readme",
   "devDependencies": {
     "vbuild": "^6.0.0"
   },
