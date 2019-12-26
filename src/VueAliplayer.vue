@@ -13,7 +13,7 @@ export default {
     aliplayerSdkPath: {
       // Aliplayer 代码的路径
       type: String,
-      default: "//g.alicdn.com/de/prismplayer/2.6.0/aliplayer-min.js"
+      default: "//g.alicdn.com/de/prismplayer/2.8.1/aliplayer-flash-min.js"
     },
     autoplay: {
       type: Boolean,
@@ -69,8 +69,8 @@ export default {
     },
     skinLayout: {
       type: Array,
-      default: function () {
-        return []
+      default: function() {
+        return [];
       }
     },
     x5_video_position: {
@@ -95,11 +95,23 @@ export default {
     },
     autoPlayDelayDisplayText: {
       type: String
+    },
+    showBuffer: {
+      type: Number,
+      default: 0
+    },
+    rtmpBufferTime: {
+      type: Number,
+      default: 0
     }
   },
   data() {
     return {
-      playerId: "aliplayer_" + Math.random().toString(36).substr(2),
+      playerId:
+        "aliplayer_" +
+        Math.random()
+          .toString(36)
+          .substr(2),
       scriptTagStatus: 0,
       isReload: false,
       instance: null
@@ -157,7 +169,7 @@ export default {
         (_this.instance === null || _this.reloadPlayer)
       ) {
         _this.instance && _this.instance.dispose();
-        
+
         document.querySelector("#" + _this.playerId).innerHTML = "";
 
         // Vue 异步执行 DOM 更新，这样一来代码执行到这里的时候可能 template 里面的 script 标签还没真正创建
@@ -184,7 +196,9 @@ export default {
             x5_fullscreen: _this.x5_fullscreen,
             x5_orientation: _this.x5_orientation,
             autoPlayDelay: _this.autoPlayDelay,
-            autoPlayDelayDisplayText: _this.autoPlayDelayDisplayText
+            autoPlayDelayDisplayText: _this.autoPlayDelayDisplayText,
+            rtmpBufferTime: _this.rtmpBufferTime,
+            showBuffer: _this.showBuffer
           });
 
           // 绑定事件，当 AliPlayer 初始化完成后，将编辑器实例通过自定义的 ready 事件交出去
@@ -223,7 +237,7 @@ export default {
           _this.instance.on("snapshoted", () => {
             this.$emit("snapshoted", _this.instance);
           });
-          
+
           _this.instance.on("timeupdate", () => {
             _this2.$emit("timeupdate", _this.instance);
           });
