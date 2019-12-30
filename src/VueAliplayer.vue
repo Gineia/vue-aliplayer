@@ -170,6 +170,7 @@ export default {
       ) {
         _this.instance && _this.instance.dispose();
 
+        // zhat
         if (document.querySelector("#" + _this.playerId)) {
           document.querySelector("#" + _this.playerId).innerHTML = "";
         } else {
