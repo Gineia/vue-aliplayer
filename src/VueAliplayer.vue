@@ -172,6 +172,8 @@ export default {
 
         if (document.querySelector("#" + _this.playerId)) {
           document.querySelector("#" + _this.playerId).innerHTML = "";
+        } else {
+          return;
         }
 
         // Vue 异步执行 DOM 更新，这样一来代码执行到这里的时候可能 template 里面的 script 标签还没真正创建
