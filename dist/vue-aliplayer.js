@@ -135,6 +135,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     aliplayerSdkPath: {
       // Aliplayer 代码的路径
       type: String,
+      //        //g.alicdn.com/de/prismplayer/2.8.1/aliplayer-flash-min.js
       default: "//g.alicdn.com/de/prismplayer/2.8.1/aliplayer-flash-min.js"
     },
     autoplay: {
@@ -288,7 +289,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (_this.scriptTagStatus === 2 && (_this.instance === null || _this.reloadPlayer)) {
         _this.instance && _this.instance.dispose();
 
-        document.querySelector("#" + _this.playerId).innerHTML = "";
+        // zhat
+        if (document.querySelector("#" + _this.playerId)) {
+          document.querySelector("#" + _this.playerId).innerHTML = "";
+        } else {
+          return;
+        }
 
         // Vue 异步执行 DOM 更新，这样一来代码执行到这里的时候可能 template 里面的 script 标签还没真正创建
         // 所以，我们只能在 nextTick 里面初始化 Aliplayer
